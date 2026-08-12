@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                 sh """
-                  // 'aws-global-creds' is the ID of your Jenkins credential entry
+                 # 'aws-global-creds' is the ID of your Jenkins credential entry
                   withAWS(credentials: 'aws-creds', region: 'us-east-1') {
                   aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com
                   docker build -t roboshop/catalouge .
