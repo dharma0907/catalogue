@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        docer build -t catalogue:${appversion} .
+                        docker build -t catalogue:${appversion} .
 
                     """
                 }
