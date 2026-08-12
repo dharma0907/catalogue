@@ -40,6 +40,16 @@ pipeline {
                 }
             }
         }
+          stage('Docker build') {
+            steps {
+                script {
+                    sh """
+                        docer build -t catalogue:${appversion} .
+
+                    """
+                }
+            }
+        }
         stage('Deploy') {
             when {
                 // Evaluates the boolean parameter directly
