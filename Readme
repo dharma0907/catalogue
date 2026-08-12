@@ -1,0 +1,19 @@
+DOCKER NETWORK:
+
+docker runs using broge and host network.
+
+docker container uses bridge network
+
+
+
+  138  18/07/26 08:53:12 docker network
+  139  18/07/26 08:53:16 docker network ls
+  140  18/07/26 08:53:38 docker network create roboshop
+  141  18/07/26 08:54:13 docker network disconnect bridge catalogue
+  142  18/07/26 08:54:25 docker network disconnect bridge mongod
+  143  18/07/26 08:54:31 docker ps -a
+  144  18/07/26 08:54:40 ifconfig
+  145  18/07/26 08:55:37 docker network connect roboshop catalogue mongod
+  146  18/07/26 08:55:52 docker network connect roboshop catalogue 
+  147  18/07/26 08:56:01 docker network connect roboshop mongod
+
