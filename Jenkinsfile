@@ -6,6 +6,9 @@ pipeline {
     }
     environment {
         def appVersion = ""
+        ACC_ID = "565139240657"
+        project = "roboshop"
+        component = "catalouge"
     }
     options {
         disableConcurrentBuilds()
@@ -40,16 +43,30 @@ pipeline {
                 }
             }
         }
-          stage('Docker build') {
+        // stage('Docker build') {
+        //     steps {
+        //         script {
+        //             sh """
+        //                 docker build -t catalogue:${appVersion} .
+
+        //             """
+        //         }
+        //     }
+        // }
+        stage('Docker BUild and Push to ECR') {
             steps {
                 script {
-                    sh """
-                        docker build -t catalogue:${appVersion} .
-
-                    """
+                  // 'aws-global-creds' is the ID of your Jenkins credential entry
+                  withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com
+                  docker build -t roboshop/catalouge .
+                  docker tag ${project}/${component}:${appVersion} ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${project}/${component}:${appVersion}
+                  docker push ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${project}/${component}:${appVersion}
+                  
                 }
             }
         }
+
         stage('Deploy') {
             when {
                 // Evaluates the boolean parameter directly
