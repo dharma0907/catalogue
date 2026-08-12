@@ -4,9 +4,9 @@ pipeline {
             label 'ROBOSHOP' 
         } 
     }
-    // environment {
-    //     COURSE = "Jenkins"
-    // }
+    environment {
+        def appVersion = ""
+    }
     options {
         disableConcurrentBuilds()
         timeout(time: 15, unit: 'MINUTES')
@@ -30,11 +30,11 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Build') {
             steps {
                 script {
                     sh """
-                        echo "Testing"
+                         echo "The application version is: ${appVersion}"
                     """
                 }
             }
