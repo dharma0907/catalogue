@@ -89,7 +89,7 @@ pipeline {
                     sh '''
                         set -e
 
-                        REPO="daws-90s/catalogue"
+                        REPO="dharma0907/catalouge"
 
                         curl -s -L \
                         -H "Accept: application/vnd.github+json" \
