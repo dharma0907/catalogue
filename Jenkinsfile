@@ -1,6 +1,6 @@
 @Library('jenkins-shared-library') _
 def configMap = [
-    project = "roboshop"
+    project = "roboshop",
     component = "catalogue"
 ]
 tettpipeline(configMap)
