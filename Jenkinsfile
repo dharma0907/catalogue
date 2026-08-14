@@ -131,21 +131,33 @@ pipeline {
                 }        
             }
         }
-
         stage('Deploy') {
-            when {
-                // Evaluates the boolean parameter directly
-                expression { "${params.DEPLOY}" == "true" }
-            }
-            /* input {
-                message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
-                parameters {
-                    string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+            steps {
+                script {
+                    sh """
+                        echo "Deploy Build"
+
+                    """
                 }
-            } */
+            }
+
+
         }
+
+        // stage('Deploy') {
+        //     when {
+        //         // Evaluates the boolean parameter directly
+        //         expression { "${params.DEPLOY}" == "true" }
+        //     }
+        //     /* input {
+        //         message "Should we continue?"
+        //         ok "Yes, we should."
+        //         submitter "alice,bob"
+        //         parameters {
+        //             string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        //         }
+        //     } */
+        // }
     }
 
     post { 
