@@ -3,4 +3,4 @@ def configMap = [
     project = "roboshop",
     component = "catalogue"
 ]
-tettpipeline(configMap)
+testpipeline(configMap)
