@@ -28,3 +28,4 @@
     "@instana/collector": "^1.132.2",
     "redis": "^3.1.1"
   }
+}
