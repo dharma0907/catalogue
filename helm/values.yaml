@@ -1,7 +1,7 @@
 configmap:
   mongodbUrl: "mongodb://mongodb:27017/catalogue"
 deployment:
-  imageRepo: 565139240657.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalouge # here we are using ECR container registry
+  imageRepo: 565139240657.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue# here we are using ECR container registry
   imageVersion: 4.0.0
 hpa:
   cpuPercentage: 80
