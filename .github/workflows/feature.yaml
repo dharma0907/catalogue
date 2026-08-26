@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 
 jobs:
-  feature-pipeline:
+  feature_workflow:
     if: github.ref_name != 'main'
     uses: dharma0907/workflows/.github/workflows/nodejs-eks-feature.yaml@main
     with:
