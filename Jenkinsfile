@@ -1,7 +1,7 @@
 @Library('jenkins-shared-library') _
 def configMap = [
     project : "roboshop",
-    component : "catalouge"
+    component : "catalogue"
 ]
 if (env.BRANCH_NAME.equalsIgnoreCase('main')){
     echo "We will deal later"
