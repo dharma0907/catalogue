@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
 
 jobs:
-  feature-pipeline:
+  feature_workflow:
     if: github.ref_name != 'main'
     uses: dharma0907/workflows/.github/workflows/nodejs-eks-feature.yaml@main
     with:
@@ -17,4 +17,4 @@ jobs:
     runs-on:  ubuntu-latest
     steps:
       - name: main workflow
-        run: echo "this runs when a commit comes to main branch" 
+        run: echo "this runs when a commit comes to main branch"  
